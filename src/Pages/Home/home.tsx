@@ -4,6 +4,7 @@ import { faker } from "@faker-js/faker";
 import { v4 as uuidv4 } from "uuid";
 import { data } from "./data";
 import { useState } from "react";
+import { Button } from "@material-tailwind/react";
 
 export default function Home() {
   const [blocks, setBlocks] = useState<BlockProps[]>(data);
@@ -14,6 +15,17 @@ export default function Home() {
       <Header />
       <div className="border flex items-center justify-center scrollbar-hide">
         <div className="my-10 mx-10 sm:mx-0 w-full max-w-6xl grid row-auto items-center grid-cols-3 gap-5">
+          <div className="col-span-3 flex items-center justify-between">
+            <p className="text-3xl font-Inter font-bold ">
+              Blocos Recomendados
+            </p>
+            <div className="flex items-centes justify-center p-2 gap-2 rounded-lg border border-gray-300">
+              <Button size="sm">Lista</Button>
+              <Button variant="outlined" size="sm">
+                MAPA
+              </Button>
+            </div>
+          </div>
           {blocks.map((element) => {
             return (
               <Block
