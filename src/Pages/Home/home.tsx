@@ -20,8 +20,10 @@ export default function Home() {
               Blocos Recomendados
             </p>
             <div className="flex items-centes justify-center p-2 gap-2 rounded-lg border border-gray-300">
-              <Button size="sm">Lista</Button>
-              <Button variant="text" size="sm">
+              <Button size="sm" color="purple">
+                Lista
+              </Button>
+              <Button variant="text" color="purple" size="sm">
                 MAPA
               </Button>
             </div>

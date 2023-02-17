@@ -39,7 +39,7 @@ export function Header() {
             </Select>
           </div>
           <div className="col-span-3 sm:col-span-1">
-            <Button fullWidth variant="gradient">
+            <Button fullWidth variant="gradient" color="purple">
               Pesquisar
             </Button>
           </div>
