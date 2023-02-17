@@ -21,7 +21,7 @@ export default function Home() {
             </p>
             <div className="flex items-centes justify-center p-2 gap-2 rounded-lg border border-gray-300">
               <Button size="sm">Lista</Button>
-              <Button variant="outlined" size="sm">
+              <Button variant="text" size="sm">
                 MAPA
               </Button>
             </div>
