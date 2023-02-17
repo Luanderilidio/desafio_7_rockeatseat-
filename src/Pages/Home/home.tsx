@@ -16,7 +16,7 @@ export default function Home() {
       <div className="border flex items-center justify-center scrollbar-hide">
         <div className="my-10 mx-10 sm:mx-0 w-full max-w-6xl grid row-auto items-center grid-cols-3 gap-5">
           <div className="col-span-3 flex items-center justify-between">
-            <p className="text-3xl font-Inter font-bold ">
+            <p className="sm:text-3xl font-Inter font-bold ">
               Blocos Recomendados
             </p>
             <div className="flex items-centes justify-center p-2 gap-2 rounded-lg border border-gray-300">
