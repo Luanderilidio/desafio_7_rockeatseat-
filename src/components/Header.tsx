@@ -6,7 +6,7 @@ import "animate.css";
 
 export function Header() {
   return (
-    <div className="relative w-full py-24 bg-[#F8F8FF] z-0 shadow-xl rounded-b-xl">
+    <div className="relative w-full py-24 bg-[#F8F8FF] z-0 shadow-lg rounded-b-xl">
       <img
         className="absolute z-10 top-0 w-60 sm:w-auto animate__animated animate__bounceInLeft animate__faster	"
         src={img1}
@@ -33,11 +33,9 @@ export function Header() {
           </div>
           <div className="col-span-3 sm:col-span-1">
             <Select label="Selecione uma Cidade">
-              <Option>Material Tailwind HTML</Option>
-              <Option>Material Tailwind React</Option>
-              <Option>Material Tailwind Vue</Option>
-              <Option>Material Tailwind Angular</Option>
-              <Option>Material Tailwind Svelte</Option>
+              <Option>Mato Grosso</Option>
+              <Option>São Paulo</Option>
+              <Option>Rio de Janeiro</Option>
             </Select>
           </div>
           <div className="col-span-3 sm:col-span-1">
