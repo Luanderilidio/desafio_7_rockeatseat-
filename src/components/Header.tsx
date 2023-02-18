@@ -1,10 +1,56 @@
+import { useContext, useState } from "react";
 import { Button, Input, Option, Select } from "@material-tailwind/react";
-import { MagnifyingGlass } from "phosphor-react";
+import { BlockProps } from "./Block";
+import { data } from "../Pages/Home/data";
+
+import { MagnifyingGlass, X } from "phosphor-react";
 import img1 from "../assets/img1.svg";
 import img2 from "../assets/img2.svg";
 import "animate.css";
+import { AppContext } from "../context/context";
 
-export function Header() {
+export function Header(): JSX.Element {
+  const testeContext = useContext(AppContext);
+  const [name, setName] = useState("");
+  const [state, setState] = useState<string>();
+  const [blocks, setBlocks] = useState<BlockProps[]>(data);
+  const [clear, setClear] = useState(true);
+  const [alert, setAlert] = useState(false);
+
+  const handleClearClick = () => {
+    setClear(false);
+  };
+
+  const handleCloseClick = () => {
+    setName("");
+    setClear(true);
+    setAlert(false);
+    testeContext?.setTeste(data);
+  };
+
+  const handleSelect = (value: any) => {
+    setState(value);
+  };
+
+  const blocksFilter = () => {
+    let newBlocks = blocks.filter(
+      (element) => element.title === name && element.city === state
+    );
+    if (newBlocks.length === 0) {
+      setAlert(true);
+    } else {
+      testeContext?.setTeste(newBlocks);
+      setAlert(false);
+    }
+  };
+
+  const focusDesableInput = () => {
+    if (name.length === 0) {
+      setAlert(false);
+      testeContext?.setTeste(data);
+    }
+  };
+
   return (
     <div className="relative w-full py-24 bg-[#F8F8FF] z-0 shadow-lg rounded-b-xl">
       <img
@@ -27,20 +73,51 @@ export function Header() {
         <div className="w-full sm:w-7/12 grid grid-cols-3  gap-4 rounded-lg bg-white py-10 px-10 drop-shadow-lg">
           <div className="col-span-3 sm:col-span-1 text-[#E45858]">
             <Input
+              error={alert}
+              onBlur={focusDesableInput}
+              value={name}
+              onClick={handleClearClick}
+              onChange={(event) => {
+                setName(event.target.value);
+                if (event.target.value.length === 0) {
+                  testeContext?.setTeste(data);
+                  console.log(event.target.value.length);
+                }
+              }}
               color="purple"
-              icon={<MagnifyingGlass className="" size={25} />}
+              icon={
+                clear ? (
+                  <MagnifyingGlass className="" size={25} />
+                ) : (
+                  <X
+                    onClick={handleCloseClick}
+                    // className="text-red-500"
+                    size={25}
+                  />
+                )
+              }
               label="Pesquisar por nome"
             />
           </div>
           <div className="col-span-3 sm:col-span-1">
-            <Select color="purple" label="Selecione uma Cidade">
-              <Option>Mato Grosso</Option>
-              <Option>São Paulo</Option>
-              <Option>Rio de Janeiro</Option>
+            <Select
+              value={state}
+              onChange={handleSelect}
+              color="purple"
+              label="Selecione uma Cidade"
+            >
+              <Option value="Mato Grosso">Mato Grosso</Option>
+              <Option value="São Paulo">São Paulo</Option>
+              <Option value="Rio de Janeiro">Rio de Janeiro</Option>
             </Select>
           </div>
           <div className="col-span-3 sm:col-span-1">
-            <Button fullWidth variant="gradient" color="purple">
+            <Button
+              onClick={blocksFilter}
+              fullWidth
+              variant="gradient"
+              color="purple"
+            >
               Pesquisar
             </Button>
           </div>
