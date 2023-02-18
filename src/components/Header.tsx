@@ -47,6 +47,7 @@ export function Header(): JSX.Element {
   const focusDesableInput = () => {
     if (name.length === 0) {
       setAlert(false);
+      setClear(true);
       testeContext?.setTeste(data);
     }
   };
