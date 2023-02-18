@@ -27,12 +27,13 @@ export function Header() {
         <div className="w-full sm:w-7/12 grid grid-cols-3  gap-4 rounded-lg bg-white py-10 px-10 drop-shadow-lg">
           <div className="col-span-3 sm:col-span-1 text-[#E45858]">
             <Input
-              icon={<MagnifyingGlass size={25} />}
+              color="purple"
+              icon={<MagnifyingGlass className="" size={25} />}
               label="Pesquisar por nome"
             />
           </div>
           <div className="col-span-3 sm:col-span-1">
-            <Select label="Selecione uma Cidade">
+            <Select color="purple" label="Selecione uma Cidade">
               <Option>Mato Grosso</Option>
               <Option>São Paulo</Option>
               <Option>Rio de Janeiro</Option>
