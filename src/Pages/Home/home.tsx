@@ -1,15 +1,28 @@
 import { Block, BlockProps } from "../../components/Block";
 import { Header } from "../../components/Header";
 import { faker } from "@faker-js/faker";
-import { v4 as uuidv4 } from "uuid";
 import { data } from "./data";
 import { useState } from "react";
+import Festa1 from "../../assets/festa1.png";
 import { Button } from "@material-tailwind/react";
+import { useContext } from "react";
+import { AppContext } from "../../context/context";
 
 export default function Home() {
-  const [blocks, setBlocks] = useState<BlockProps[]>(data);
+  const testeContext = useContext(AppContext);
 
-  console.log(blocks);
+  // testeContext?.setTeste([
+  //   {
+  //     id: "asdas",
+  //     title: "O Python do vovô não sobe mais",
+  //     description:
+  //       "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+  //     city: "Mato Grosso",
+  //     uf: "MT",
+  //     image: Festa1,
+  //   },
+  // ]);
+
   return (
     <div className="flex flex-col">
       <Header />
@@ -19,7 +32,7 @@ export default function Home() {
             <p className="sm:text-3xl font-Inter font-bold ">
               Blocos Recomendados
             </p>
-            <div className="flex items-centes justify-center p-2 gap-2 rounded-lg border border-gray-300">
+            <div className="flex items-centes justify-center p-2 gap-2 rounded-lg">
               <Button size="sm" color="purple">
                 Lista
               </Button>
@@ -28,7 +41,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          {blocks.map((element) => {
+          {testeContext?.teste?.map((element) => {
             return (
               <Block
                 id={element.id}
