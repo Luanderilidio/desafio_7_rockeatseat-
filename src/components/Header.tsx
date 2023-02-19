@@ -51,7 +51,6 @@ export function Header(): JSX.Element {
       testeContext?.setTeste(data);
     }
   };
-
   return (
     <div className="relative w-full py-24 bg-[#F8F8FF] z-0 shadow-lg rounded-b-xl">
       <img
