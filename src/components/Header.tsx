@@ -64,7 +64,7 @@ export function Header(): JSX.Element {
         </p>
         <p className="text-4xl sm:text-5xl text-center font-Inter font-bold ">
           Encontre os{" "}
-          <strong className="font-bold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-deep-purple-500 to-pink-600 ">
+          <strong className="font-bold text-transparent text-4xl sm:text-5xl bg-clip-text bg-gradient-to-r from-deep-purple-500 to-pink-600 ">
             melhores blocos
           </strong>
           <br />
